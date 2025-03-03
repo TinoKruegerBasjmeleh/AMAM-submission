@@ -1,6 +1,7 @@
 \documentclass{amam}                % import amam.cls
 \usepackage[utf8]{inputenc}         % use UTF-8 encoding to support extended characters for foreign names
 \usepackage{textcomp}               % add support for symbols in text
+\usepackage{amsmath}                % provides the \text command in math mode
 \usepackage{graphicx}               % to import figures
 \usepackage{url}                    % allow URL formatting
 
@@ -21,7 +22,22 @@
 %\end{abstract}
 
 \section{Introduction}
-Efficient path planning is a crucial challenge in autonomous intralogistics systems, where Autonomous Mobile Robots (AMRs) must navigate complex, dynamic environments with minimal commissioning effort.  Brownfield warehouses present additional challenges due to their space constraints and frequent human-robot interactions. In such settings, AMRs must ensure precise pickup and drop operations while adhering to kinematic constraints and avoiding obstacles in real-time. Traditional path planning methods often present limitations when it comes to explainability, adaptability and computational efficiency, limiting their practical deployment. Limitations found in the literature include using unrealistic testing environments and simulation-only based results, and planning a path within a long planning time (18 to 31s for scenarios ranging from simple to very complex using Particle Swarm Optimization: PSO) \cite{ref1}. This paper introduces a bio-inspired optimization approach that integrates and compares algorithms like Genetic Algorithms (GA), Particle Swarm Optimization (PSO), and Differential Evolution (DE) with pattern-based paths for fast and efficient trajectory generation. By leveraging mathematical modelisation of the problem and real-time decision-making, our methodology ensures smooth, kinematically feasible trajectories while minimizing travel distance and curvature changes and avoiding collisions. The approach is implemented within the Robotics Application Construction Kit (RACK) framework and validated through simulation and real-world tests, demonstrating improved trajectory accuracy, reduced commissioning effort, and enhanced robotic explainability. This study contributes to optimization in robotics, making AMRs more adaptive and efficient in dynamic intralogistics environments.
+
+Brownfield environments in intralogistics are highly dynamic, complex and tight action areas for autonomous mobile robots (AMRs).
+These environments require AMRs to navigate aside human workers, other warehouse vehicles and existing infrastructure while being highly 
+flexible, time efficient and safe. For the path planning domain additional challenges arise when 
+they adress logistical pickup or drop zones. These zones requiring higher accuracy due to the interaction with goods  while being
+predictable for the surrounding workers in such warehouses. The general robotic path planning problem is a well-known problem,
+where the goal is to find a collision-free path to link the robots current pose with a target pose while adhering to kinematic
+constraints and avoiding obstacles in real-time. Current path planning methods often present limitations when adressing these application field in
+explainability, adaptability and computational efficiency and limiting therefore their practical deployment. Limitations found in the literature
+include also over simplified testing environments, simulation-only based results (see simulation reality gap) and extended planning times up to 31s
+for scenarios ranging from simple to very complex (e.g. using Particle Swarm Optimization (PSO) \cite{ref1}). This paper introduces a 
+nature-inspired optimization approach based on pattern-based paths for fast and efficient trajectory generation. By leveraging mathematical
+modelisation of the problem and real-time decision-making, the proposed  methodology ensures smooth, kinematically feasible trajectories while
+minimizing travel distance, curvature changes and avoiding collisions. The approach is implemented within the Robotics Application Construction Kit (RACK) 
+framework and validated through simulation and real-world tests, demonstrating improved trajectory accuracy, enhanced robotic explainability and reduced commissioning effort.
+This study contributes to optimization in robotics, making AMRs more adaptive and efficient in dynamic intralogistics environments.
 
 \subsection{Problem Statement}
 Autonomous Mobile Robots (AMRs) in intralogistics face significant challenges in efficiently linking their starting positions to precise pallet docking locations while adapting to dynamic warehouse conditions. In brownfield warehouses, environments are often cluttered, with limited maneuvering space, requiring AMRs to efficiently navigate alongside human workers while maintaining safety and precision.
