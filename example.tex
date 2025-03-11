@@ -4,6 +4,7 @@
 \usepackage{amsmath}                % provides the \text command in math mode
 \usepackage{graphicx}               % to import figures
 \usepackage{url}                    % allow URL formatting
+\usepackage{todonotes}
 
 \title{Optimal pattern-based near-field path planning for mobile robots, under consideration of obstacles in intralogistics environments}
 
@@ -20,7 +21,8 @@
 %\begin{abstract}
 %This paper presents a novel methodology for near-field path planning in intralogistics environments, enhancing the efficiency, safety, and explainability of autonomous mobile robots (AMRs). The proposed approach integrates pattern-based online path planning, leveraging environmental recognition to generate optimal trajectories that conform to kinematic constraints. A combination of evaluation metrics and metaheuristic optimization techniques ensures improved performance. Implemented within the Robotics Application Construction Kit (RACK) framework, the methodology is validated through simulation and real-world scenarios, demonstrating a reduction in commissioning effort while maintaining adaptability in dynamic environments. The results show improved path efficiency, enhanced obstacle avoidance, and increased reliability, making this approach a promising advancement in intralogistics automation.
 %\end{abstract}
-
+\section*{Abstract}
+\todo{write abstact}
 \section{Introduction}
 
 Brownfield environments in intralogistics are highly dynamic, complex and tight action areas for autonomous mobile robots (AMRs).
@@ -38,6 +40,42 @@ modelisation of the problem and real-time decision-making, the proposed  methodo
 minimizing travel distance, curvature changes and avoiding collisions. The approach is implemented within the Robotics Application Construction Kit (RACK) 
 framework and validated through simulation and real-world tests, demonstrating improved trajectory accuracy, enhanced robotic explainability and reduced commissioning effort.
 This study contributes to optimization in robotics, making AMRs more adaptive and efficient in dynamic intralogistics environments.
+
+\section{State of the Art}
+Path planning is a fundamental challenge in robotics, with extensive research focusing on optimizing trajectory generation 
+for mobile robots. Traditional approaches, such as A* and Dijkstra algorithms, have been widely used to find optimal paths 
+in static environments. However, these methods struggle to adapt to dynamic scenarios, where obstacles are constantly moving 
+or changing. The essence of planar motion planning is the planning and executional link between the link between the current 
+location and the desired destination through planar driving maneuvers. The movement planning can be splitted into 
+into global movement planning and local movement planning. The local path planning links the current location with the
+desired destination pose through a series of driving maneuvers in the context of this project the pallet location. 
+Compared to global path planning the local path planning tends to converge to local minima, due to the missing knowledge
+of the environment out of the sensorical view.  The imense number of individual approaches, but also the development dynamics of the past decades try to answer the local path 
+planning problem in mobile robotics does not allow a detailed discussion of individual publications within the scope of this work.
+For this reason, an evaluation based on a clustering was done. Starting from the early years of mobile robotics 
+(Latombe [Lat84], Kathib [Kha85] or Lumelsky [LS87]) through to current developments, key characterics are subsequently
+identified. After this clustering a consequent discrimating approach is done with the aim of selecting the most suitable 
+cluster within this application field context. 
+
+The field of local path planning  apporaches be can be clustered based on their underlying state spaces for the calculation
+the control outputs of the actuators (steering and traction drive). The clustering are therefore grouped into 
+direction-, speed- and path-generating methods (see figure).
+
+\begin{figure}
+  \centering \includegraphics[width=1.0\linewidth]{eps/Mindmap-OAApproaches.pdf}
+  \caption{Mindmap showing the clustering of local path planning approaches, with example approaches in each category}
+  \label{mindmap}
+\end{figure}
+
+
+
+
+
+
+
+
+To address this limitation, researchers have explored metaheuristic optimization techniques, such as genetic 
+algorithms, particle swarm optimization, and ant colony optimization, to enhance path planning efficiency and adaptability \cite{ref1}.
 
 \subsection{Problem Statement}
 Autonomous Mobile Robots (AMRs) in intralogistics face significant challenges in efficiently linking their starting positions to precise pallet docking locations while adapting to dynamic warehouse conditions. In brownfield warehouses, environments are often cluttered, with limited maneuvering space, requiring AMRs to efficiently navigate alongside human workers while maintaining safety and precision.
